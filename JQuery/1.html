@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Include jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        // Function to validate the dropdown selection
+        function validate(id, errid) {
+            var op = $('#' + id).val();
+            if (op === "test") { // Change to "test" instead of "center"
+                $("#" + errid).html("Please select an option"); // Corrected error message
+                return false;
+            } else {
+                $("#" + errid).html(""); // Clear error message
+                return true;
+            }
+        }
+
+        // jQuery function to handle form submission
+        $(document).ready(function(){
+            $("#frm").submit(function(event){
+                // Call validate function for dropdown with ID 'center' and error span with ID 'errcenter'
+                var flag = validate("center", "errcenter");
+                return flag; // Return the validation result
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="frm">
+        <select id="center" name="center">
+            <option value="test">-----Select option-------</option>
+            <option value="Acts">Acts</option>
+            <option value="Iacsd">IACSD</option>
+            <option value="Sunbeam">Sunbeam</option>
+            <option value="Know-it">Know-it</option>
+        </select>
+        <span id="errcenter"></span> <!-- Error message will be displayed here -->
+        <br>
+        <button type="submit" id="btn" name="btn">Select Center</button>
+    </form>
+</body>
+</html>

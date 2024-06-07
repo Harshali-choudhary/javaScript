@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateRadio(nm,errid){
+            var n=document.getElementsByName("gender");
+            for(var i=0;i<n.length;i++)
+            {
+                if(n[i].checked)
+                {
+                    document.getElementById(errid).innerHTML="";
+                    return true;
+                }
+            }
+            document.getElementById(errid).innerHTML="pls select one choice";
+            return false;
+        }
+
+        function validateCheckbox(sub,errid)
+        {
+            var cnt=0;
+            var n=document.getElementsByName("subject");
+            for(var i=0;i<n.length;i++)
+            {
+                if(n[i].checked)
+                {
+                    cnt++;
+                }
+            }
+            if(cnt>=2)
+            {
+                document.getElementById(errid).innerHTML="";
+                return true;
+            }
+            document.getElementById(errid).innerHTML="pls select minimun two checkbox";
+        }
+        function validateData()
+        {
+            var flag=validateRadio("gender","errgender");
+            var flag1=validateCheckbox("subject","errsubject");
+            return  flag1;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="validateData()">
+        Gender:<br>
+    <input type="radio" name="gender" id="male" value="male"><label for="male">Male</label>
+    <input type="radio" name="gender" id="female" value="female"><label for="female">Female</label>
+    <input type="radio" name="gender" id="other" value="other"><label for="other">Other</label>
+    <span id="errgender" style="color: red"></span>
+    <br>
+    <input type="checkbox" name="subject" id="Java" value="Java"><label for="Java">Java</label>
+    <input type="checkbox" name="subject" id="C++" value="C++"><label for="C++">C++</label>
+    <input type="checkbox" name="subject" id="C" value="C"><label for="C">C</label>
+    <input type="checkbox" name="subject" id="React" value="React"><label for="React">React</label>
+    <span id="errsubject" style="color:red"></span>
+      <br>
+    <button type="submit" id="btn" name="submit" value="submit">select subject</button>
+    </form>
+</body>
+</html>

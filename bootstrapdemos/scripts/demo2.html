@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1()
+        {
+            var num=parseInt(document.getElementById("value").value)
+            alert(num)
+             var s=document.getElementById("mesg").value
+             alert(s)
+            for(var i=1; i<=num; i++)
+            {
+                document.getElementById("mydiv").innerHTML+="Message = "+s+"<br>"
+                alert(i)
+            }
+        }
+    </script>
+    <input type="text" id="mesg" placeholder="Enter the mesg">
+    <input type="text" id="value" placeholder="Emter the number">
+    <button type="button" id="submit" onclick="f1()">Submit</button>
+    <div id="mydiv"></div>
+ 
+</body>
+</html>

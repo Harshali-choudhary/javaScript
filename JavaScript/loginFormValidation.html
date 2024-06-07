@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateTextBox(id,errid)
+        {
+            var Id=document.getElementById(id).value;
+            if(Id.trim().length>=4)
+            {
+               document.getElementById(errid).innerHTML=" ";
+               return true;
+            }
+            document.getElementById(errid).innerHTML="data contain spaces";
+            return false;
+        }
+        function validateMobileNo(id,errid)
+        {
+            var Mob=document.getElementById(id).value;
+            if(isFinite(Mob) && Mob.minlenght()>=10 && Mob.maxlenght()<=12)
+            {
+              document.getElementById(errid).innerHTML=" ";
+              return true;
+            }
+            document.getElementById(errid).innerHTML="Please enter the valid mobile no";
+            return false;
+        }
+        function validateData(){
+              var flag1=validateTextBox("name","errname");
+              var flag2=validateTextBox("pass","errpass");
+              var flag3=validateMobileNo("mob","errmob")
+              return flag1 && flag2 && flag3;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="validateData()" method="post">
+    <input type="text" id="name" placeholder="Enter the name" required minlength="4" maxlength="10"><span id="errname" Style="color:red"></span><br>
+    <input type="password" id="pass" placeholder="Enter the password" required minlength="4" maxlength="7"><span id="errpass" style="color:red"></span><br>
+    <input type="text" id="mob" placeholder="enter the mobile no." reqiured minlength="10" maxlength="12"  ><span id="errmob" style="color:red"></span><br>
+    <button type="submit" id="submit">Submit</button>
+    </form>
+</body>
+</html>

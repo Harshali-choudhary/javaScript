@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function validateOption(id,errid)
+        {
+            var c=document.getElementById(id);
+            var op=c.selectedIndex;
+            var val=c.options[op].value;
+            if(val==="test")
+            {
+                document.getElementById(errid).innerHTML="pls select option";
+                return false;
+            }
+            document.getElementById(errid).innerHTML="";
+            return true;
+        }
+        function validate()
+        {
+            var flag=validateOption("center","errcenter")
+            return flag;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="return validate()">
+        <select id="center" name="center">
+            <option value="test" >-----Select One-------</option>
+            <option value="Acts">Acts</option>
+            <option value="Iacsd">IACSD</option>
+            <option value="Sunbeam">Sunbeam</option>
+            <option value="know-it">know-it</option>
+        </select><span id="errcenter" style="color:red"></span>
+        <br>
+        <button type="submit" id="btn" name="btn">Submit</button>     
+    </form>
+</body>
+</html>

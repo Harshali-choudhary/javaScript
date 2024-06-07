@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greater()
+        {
+            var a1=parseInt(document.getElementById("n1").value);
+            var a2=parseInt(document.getElementById("n2").value);
+            var a3=parseInt(document.getElementById("n3").value);
+            if(a1>a2 && a1>a3)
+            {
+                document.getElementById("mydiv").innerHTML="Greater number : "+a1;
+            }
+             else if(a2>a1 && a2>a3)
+             {
+                 document.getElementById("mydiv").innerHTML="Greater number : "+a2;
+             }
+            else
+            {
+                document.getElementById("mydiv").innerHTML="Greater number : "+a3;
+            }
+
+        }
+    </script>
+    <form>
+        
+        Number1 : <input type="text" id="n1"  placeholder="Enter the number"><br>
+        Number2 : <input type="text" id="n2"  placeholder="Enter the number" ><br>
+        Number3 : <input type="text" id="n3" placeholder="Enter the number" ><br> 
+        <button type="button" id="Result" name="Result" onclick="greater()">Result</button>
+    </form>
+    <div id="mydiv"></div>
+    <!-- <script>
+        document.getElementById("result").addEventListener("click",Result)
+    </script>  -->
+</body>
+</html>

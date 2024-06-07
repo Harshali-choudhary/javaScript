@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<script src="./script/jquery.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        function validate(id,errid)
+        {
+            var op=$('#' + id).val();
+            if(op === "test")
+            {
+                $("#" + errid).html("pls select option");
+                return false;
+                
+            }
+            else
+            {
+                $("#" + errid).html("");
+                return true;
+            }
+
+        }
+        $(document).ready(function(){
+            $("#frm").submit(function(event){
+                flag=validate("center","errcenter");
+                return flag;
+            });
+        });
+    </script>
+</head>
+<body>
+    <form id="frm">
+        <select id="center" name="center">
+            <option value="test">-----Select option-------</option>
+            <option value="Acts">Acts</option>
+            <option value="Iacsd">IACSD</option>
+            <option value="Sunbeam">Sunbeam</option>
+            <option value="Know-it">Know-it</option>
+        </select><span id="errcenter"></span>
+        <br>
+        <button type="submit" id="btn" name="btn">select center</button>
+    </form>
+</body>
+</html>
